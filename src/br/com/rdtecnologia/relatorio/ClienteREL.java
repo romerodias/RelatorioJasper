@@ -17,27 +17,20 @@ public class ClienteREL
 	 */
 	private String path;
 	
+	
 	/**
-	 * Caminho para o package onde estão armazenados os relatorios Jarper
+	 * Caminho para o package onde estï¿½o armazenados os relatorios Jarper
 	 */
 	private String pathToReportPackage;
 	
+	
 	/**
-	 * Recupera os caminhos para que a classe possa encontrar os relatórios
+	 * Recupera os caminhos para que a classe possa encontrar os relatï¿½rios
 	 */
 	public ClienteREL() {
 		this.path = this.getClass().getClassLoader().getResource("").getPath();
 		this.pathToReportPackage = this.path + "br/com/rdtecnologia/jasper/";
-		System.out.println(path);
 	}
-	
-	public String getPathToReportPackage() {
-		return this.pathToReportPackage;
-	}
-	
-	public String getPath() {
-		return this.path;
-	}	
 
 	
 	/**
@@ -52,5 +45,15 @@ public class ClienteREL
 		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(clientes));
 
 		JasperExportManager.exportReportToPdfFile(print, "c:/Relatorio_de_Clientes.pdf");		
+	}
+	
+		
+	public String getPathToReportPackage() {
+		return this.pathToReportPackage;
+	}
+	
+	
+	public String getPath() {
+		return this.path;
 	}
 }
